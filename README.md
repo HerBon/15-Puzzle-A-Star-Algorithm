@@ -47,7 +47,7 @@ This input correspond to the initial state (board):
 <b>0 representing the blank space.</b>
 
 
-## Configuration of the goal
+## Configuration of the final board
 
 The goal state is set as:
 
