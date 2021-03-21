@@ -21,7 +21,7 @@ This input correspond to (board-game):
 |7 |11|14|4 |
 |8 |12|0 |15|
 
-| Primeiro cabeçalho  |  Segundo cabeçalho  |  Segundo cabeçalho  |
+|  |   |   |
 | ------------------- | ------------------- | ------------------- |
 |  Célula de conteúdo |  Célula de conteúdo |  Célula de conteúdo |
 |  Célula de conteúdo |  Célula de conteúdo | Célula de conteúdo  |
