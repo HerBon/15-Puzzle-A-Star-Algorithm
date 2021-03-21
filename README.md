@@ -14,7 +14,7 @@ The program reads an input in the following format:
 
      1 5 9 2 6 10 13 3 7 11 14 4 8 12 0 15
 
-This input correspond to (board-game):
+This input correspond to the initial state (board):
 
 <table>
   <tr>
@@ -46,9 +46,9 @@ This input correspond to (board-game):
 <b>0 representing the blank space.</b>
 
 
-## Configuration of the goal board
+## Configuration of the goal
 
-The goal board is set as:
+The goal state is set as:
 
 <table>
   <tr>
