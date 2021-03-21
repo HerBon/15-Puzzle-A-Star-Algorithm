@@ -8,7 +8,7 @@ Manhattan distance, linear combination between heuristics and maximum value betw
 All functions were implemented in Python. Also an article was written (in portuguese)
 comparing the efficiency of the heuristics.
 
-## How to execute
+## How to use
 
 The program reads an input in the following format:
 
