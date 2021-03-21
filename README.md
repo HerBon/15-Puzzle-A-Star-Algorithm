@@ -21,6 +21,6 @@ This input correspond to (board-game):
 | 1 | 5 | 9 | 2 |
 | 6 | 10 | 13 | 3 |
 | 7 | 11 | 14 | 4 |
-| 8 | 12 | <b> 0 <\b>  | 15 |
+| 8 | 12 | <b> 0  | 15 |
 
 0 representing the blank space
