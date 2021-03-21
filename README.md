@@ -10,7 +10,7 @@ comparing the efficiency of the heuristics.
 
 ## How to execute
 
-The program read an input in the format:
+The program reads an input in the following format:
 
      1 5 9 2 6 10 13 3 7 11 14 4 8 12 0 15
 
@@ -45,10 +45,21 @@ The goal board is set as:
 - Linear combination: linear combination of the three previous heuristics, where the sum of the coefficients must be equal one.
 - Max value: max value between out_of_place, out_of_order and manhattan_distance.
 
-<ul>
-<li>Out of place: number of pieces of out place compared to final configuration.</li>
-<li>Out of order: number of pieces out of order in the numerical sequence, following the order of positions on the board.</li>
-<li>Manhattan distance: standart Manhattan Distance.</li>
-<li>Linear combination: linear combination of the three previous heuristics, where the sum of the coefficients must be equal one.</li>
-<li>Max value: max value between out_of_place, out_of_order and manhattan_distance.</li>
-</ul>
+
+<table style="width:100%">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+</table>
