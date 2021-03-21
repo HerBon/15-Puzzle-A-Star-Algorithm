@@ -38,7 +38,7 @@ This input correspond to (board-game):
   <tr>
     <td>8</td>
     <td>12</td>
-    <td style = "opacity: 0.6">0</td>
+    <td>0</td>
     <td>15</td>
   </tr>
 </table>
@@ -73,11 +73,11 @@ The goal board is set as:
     <td>4</td>
     <td>8</td>
     <td>12</td>
-    <td style = "opacity: 0.6">0</td>
+    <td>0</td>
   </tr>
 </table>
      
-##Heuristics implemented
+## Heuristics implemented
 
 - Out of place: number of pieces of out place compared to final configuration.
 - Out of order: number of pieces out of order in the numerical sequence, following the order of positions on the board
