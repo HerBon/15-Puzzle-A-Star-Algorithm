@@ -20,9 +20,10 @@ This input correspond to (board-game):
 |6 |10|13|3 |
 |7 |11|14|4 |
 |8 |12|0 |15|
-| ------------------- | ------------------- | ------------------- |
-| ------------------- | ------------------- | ------------------- |
-|  Célula de conteúdo |  Célula de conteúdo |  Célula de conteúdo |
-|  Célula de conteúdo |  Célula de conteúdo | Célula de conteúdo  |
+| 1 | 5 | 9 | 2 |
+| ----- | ----- | -------- | ------- |
+| 1 | 5 | 9 | 2 |
+| 1 | 5 | 9 | 2 |
+| 1 | 5 | 9 | 2 |
 
 0 representing the blank space
