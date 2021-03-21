@@ -1,12 +1,13 @@
 # A* Algorithm - 15-Puzzle
 
 ## Introduction
-First project of the class Algorithmic Modeling and Optimization.
 Consist in a basic implementation of the search algorithm A* (A star) to solve the 15-puzzle game,
 using different heuristics, as such: number of pieces out of place, number of pieces out of order,
 Manhattan distance, linear combination between heuristics and maximum value between heuristics.
 All functions were implemented in Python. Also an article was written (in portuguese)
 comparing the efficiency of the heuristics.
+
+<b>First project of the class Algorithmic Modeling and Optimization.</b>
 
 ## How to use
 
