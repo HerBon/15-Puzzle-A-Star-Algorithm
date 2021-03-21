@@ -77,7 +77,7 @@ The goal board is set as:
   </tr>
 </table>
      
-#Heuristics implemented
+##Heuristics implemented
 
 - Out of place: number of pieces of out place compared to final configuration.
 - Out of order: number of pieces out of order in the numerical sequence, following the order of positions on the board
