@@ -138,7 +138,7 @@ def A_Star (iniTable):
                     if sucessor.f() < A[index][1].f():
                         A.pop(index)
 
-                if (sucessor.state, sucessor) in F:
+                if  index_F[0]:
                     index = index_F[1]
                     if sucessor.gcost < A[index][1].gcost:
                         heapq.heappush(A, F.pop(index))
