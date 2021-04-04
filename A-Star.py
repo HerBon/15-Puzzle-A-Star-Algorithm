@@ -101,14 +101,13 @@ def heuristic_1(Node):
 
 # ------------- A-Star --------------------
 
-
-def check(State, A):
-    index = 0
-    for (x, y) in A:
-        if str(y.state) == str(State):
-            return index
-        index += 1
-    return None
+def removeFromHeap(heap, value):
+	index = 0
+	for (x, y) in heap:
+		if y.state == value:
+			heap.pop(index)
+		index += 1
+	heapq.heapify(heap)
 
 
 def A_Star (iniTable):
@@ -134,8 +133,7 @@ def A_Star (iniTable):
                 if str(sucessor.state) in A:
                     if sucessor.gcost < A[str(sucessor.state)].gcost:
                         A.pop(str(sucessor.state))
-                        index = check(sucessor.state, heap)
-                        heap.pop(index)
+                        removeFromHeap(heap, sucessor.state)
                 if  str(sucessor.state) in F:
                     if sucessor.gcost < F[str(sucessor.state)].gcost:
                         F.pop(str(sucessor.state))
@@ -143,8 +141,6 @@ def A_Star (iniTable):
 
             F[str(X[1].state)] = X[1]
             #count += 1
-
-            #heap = sorted(heap, key=lambda tup: (tup[0], tup[1]))
             #print(len(A), "\n")
     print(X[1].gcost)
 
