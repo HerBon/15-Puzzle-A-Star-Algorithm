@@ -97,6 +97,8 @@ def heuristic_1(Node):
 
     return out_place
 
+
+
 # ------------- A-Star --------------------
 
 
@@ -104,52 +106,47 @@ def check(State, A):
     index = 0
     for (x, y) in A:
         if str(y.state) == str(State):
-            return [True, index]
+            return index
         index += 1
-    return [False, None]
+    return None
 
 
 def A_Star (iniTable):
     #Defining the A(Open States) and F(Close States) group as hash tables
-    A = [(iniTable.f(), iniTable)]
-
-    F = []
-    count = 0
-    while A: #and A[0][1].state != goal:
-        X = heapq.heappop(A)
-        #print("\n X =", X[1].state)
-        #print(X[1].state == goal)
+    heap = [(iniTable.f(), iniTable)]
+    A = {str(iniTable.state) : iniTable}
+    F = {}
+    #count = 0
+    while heap:
+        X = heapq.heappop(heap)
         if (X[1].state == goal):
             break
         else:
             sucessores = Gerasucessor(X[1])
             for sucessor in sucessores:
                 sucessor.hcost = heuristic_1(sucessor.state)
-                index_A = check(sucessor.state, A)
-                index_F = check(sucessor.state, F)
-                #print(index_A)
-                #print(sucessor.state, sucessor.gcost, sucessor.f())
-                if not index_A[0]:
-                    if not index_F[0]:
-                        heapq.heappush(A, (sucessor.f(), sucessor))
+                #index_A = check(sucessor.state, A)
+                #index_F = check(sucessor.state, F)
+                if not str(sucessor.state) in A:
+                    if not str(sucessor.state) in F:
+                        heapq.heappush(heap, (sucessor.f(), sucessor))
+                        A[str(sucessor.state)] = sucessor
+                if str(sucessor.state) in A:
+                    if sucessor.gcost < A[str(sucessor.state)].gcost:
+                        A.pop(str(sucessor.state))
+                        index = check(sucessor.state, heap)
+                        heap.pop(index)
+                if  str(sucessor.state) in F:
+                    if sucessor.gcost < F[str(sucessor.state)].gcost:
+                        F.pop(str(sucessor.state))
+                        A[str(sucessor.state)] = sucessor
 
-                if index_A[0]:
-                    index = index_A[1]
-                    if sucessor.f() < A[index][1].f():
-                        A.pop(index)
+            F[str(X[1].state)] = X[1]
+            #count += 1
 
-                if  index_F[0]:
-                    index = index_F[1]
-                    if sucessor.gcost < F[index][1].gcost:
-                        heapq.heappush(A, F.pop(index))
-
-            heapq.heappush(F, X)
-            count += 1
-
-            A = sorted(A, key=lambda tup: (tup[0], tup[1]))
-            #print("goal =",goal, "\n")
+            #heap = sorted(heap, key=lambda tup: (tup[0], tup[1]))
+            #print(len(A), "\n")
     print(X[1].gcost)
-    #print(len(A))
 
 def main():
     iniState = Node(read_write(), None, 0, 0) #Node(state, parent, gcost, hcost)
