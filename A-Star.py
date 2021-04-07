@@ -98,20 +98,21 @@ def heuristic_1(Node):
 
     return out_place
 
-def heuristic_2(start):
-    foraDaOrdem = 0
-    temp = []
+def heuristic_2(state):
+    out_place = 0
+    aux = []
     for i in range(4):
         for j in range(4):
-            temp.append(start[j][i])
-    
-    for k in range(len(temp)):
-        if(k == 0):
+            aux.append(state[j][i])
+
+    for k in range(16):
+        if k == 0 :
             pass
         else:
-            if((temp[k] != (temp[k-1] + 1)) and temp[k-1] != 0):
-                foraDaOrdem += 1
-    return foraDaOrdem
+            if aux[k] != (aux[k-1] + 1):
+                if aux[k-1] != 0:
+                    out_place += 1
+    return out_place
 
 
 def heuristic_3(state):
@@ -128,6 +129,16 @@ def heuristic_3(state):
             soma += abs(j - y)
     
     return soma
+
+def heuristic_4(state):
+    p1 = 0.3
+    p2 = 0.2
+    p3 = 0.5
+
+    return (p1 * heuristic_1(state)) + (p2 * heuristic_2(state)) + (p3 * heuristic_3(state))
+
+def heuristic_5(state):
+    return max(heuristic_1(state), heuristic_2(state), heuristic_3(state))
 
 # ------------- A-Star --------------------
 
@@ -153,7 +164,7 @@ def A_Star (iniTable):
         else:
             sucessores = Gerasucessor(X[1])
             for sucessor in sucessores:
-                sucessor.hcost = heuristic_3(sucessor.state)
+                sucessor.hcost = heuristic_5(sucessor.state)
                 #index_A = check(sucessor.state, A)
                 #index_F = check(sucessor.state, F)
                 if not str(sucessor.state) in A:
