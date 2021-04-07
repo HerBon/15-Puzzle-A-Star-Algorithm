@@ -3,6 +3,7 @@
 import copy
 import heapq
 
+
 # ----------------- Estado Objetivo -----------------------
 
 goal = [[1, 5, 9, 13], [2, 6, 10, 14], [3, 7, 11, 15], [4, 8, 12, 0]]
@@ -97,7 +98,36 @@ def heuristic_1(Node):
 
     return out_place
 
+def heuristic_2(start):
+    foraDaOrdem = 0
+    temp = []
+    for i in range(4):
+        for j in range(4):
+            temp.append(start[j][i])
+    
+    for k in range(len(temp)):
+        if(k == 0):
+            pass
+        else:
+            if((temp[k] != (temp[k-1] + 1)) and temp[k-1] != 0):
+                foraDaOrdem += 1
+    return foraDaOrdem
 
+
+def heuristic_3(state):
+    goal_manhattan = {  1 : (0,0) , 2: (1,0), 3: (2, 0), 4: (3, 0),
+                    5: (0, 1), 6: (1, 1), 7: (2, 1), 8: (3, 1),
+                    9: (0, 2), 10: (1, 2), 11: (2, 2), 12: (3, 2),
+                    13: (0, 3), 14: (1, 3), 15: (2, 3), 0: (3, 3) }
+    soma = 0
+    for i in range(4):
+        for j in range(4):
+            value = state[i][j]
+            x, y = goal_manhattan[value]
+            soma += abs(i - x)
+            soma += abs(j - y)
+    
+    return soma
 
 # ------------- A-Star --------------------
 
@@ -123,7 +153,7 @@ def A_Star (iniTable):
         else:
             sucessores = Gerasucessor(X[1])
             for sucessor in sucessores:
-                sucessor.hcost = heuristic_1(sucessor.state)
+                sucessor.hcost = heuristic_3(sucessor.state)
                 #index_A = check(sucessor.state, A)
                 #index_F = check(sucessor.state, F)
                 if not str(sucessor.state) in A:
