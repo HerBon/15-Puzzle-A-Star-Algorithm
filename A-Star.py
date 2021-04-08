@@ -1,13 +1,5 @@
-# Fase 3 - Teste - Tabuleiro
-
 import copy
 import heapq
-
-
-# ----------------- Estado Objetivo -----------------------
-
-goal = [[1, 5, 9, 13], [2, 6, 10, 14], [3, 7, 11, 15], [4, 8, 12, 0]]
-
 
 # ----------------- Nó -----------------------
 
@@ -23,6 +15,11 @@ class Node:
 
     def __lt__(self, other):
         return self.state < other.state
+
+# ----------------- Estado Objetivo -----------------------
+
+goal = [[1, 5, 9, 13], [2, 6, 10, 14], [3, 7, 11, 15], [4, 8, 12, 0]]
+
 
 # ----------------- Leitura da entrada -----------------------
 def read_write():
@@ -96,21 +93,21 @@ def heuristic_1(Node):
             if Node[i][j] != goal[i][j]:
                 out_place += 1
 
-    return out_place
+    return int(out_place)
 
 def heuristic_2(state):
-    out_place = 0
     aux = []
+    out_place = 0
     for i in range(4):
         for j in range(4):
             aux.append(state[j][i])
 
-    for k in range(16):
-        if k == 0 :
+    for x in range(16):
+        if x == 0 :
             pass
         else:
-            if aux[k] != (aux[k-1] + 1):
-                if aux[k-1] != 0:
+            if aux[x] != (aux[x-1] + 1):
+                if aux[x-1] != 0:
                     out_place += 1
     return out_place
 
@@ -123,11 +120,11 @@ def heuristic_3(state):
     soma = 0
     for i in range(4):
         for j in range(4):
-            value = state[i][j]
-            x, y = goal_manhattan[value]
-            soma += abs(i - x)
-            soma += abs(j - y)
-    
+            if state[i][j]:
+                value = state[i][j]
+                x, y = goal_manhattan[value]
+                soma += abs(i - x)
+                soma += abs(j - y)
     return soma
 
 def heuristic_4(state):
@@ -156,7 +153,6 @@ def A_Star (iniTable):
     heap = [(iniTable.f(), iniTable)]
     A = {str(iniTable.state) : iniTable}
     F = {}
-    #count = 0
     while heap:
         X = heapq.heappop(heap)
         if (X[1].state == goal):
@@ -164,9 +160,7 @@ def A_Star (iniTable):
         else:
             sucessores = Gerasucessor(X[1])
             for sucessor in sucessores:
-                sucessor.hcost = heuristic_5(sucessor.state)
-                #index_A = check(sucessor.state, A)
-                #index_F = check(sucessor.state, F)
+                sucessor.hcost = heuristic_3(sucessor.state)
                 if not str(sucessor.state) in A:
                     if not str(sucessor.state) in F:
                         heapq.heappush(heap, (sucessor.f(), sucessor))
@@ -181,8 +175,6 @@ def A_Star (iniTable):
                         A[str(sucessor.state)] = sucessor
 
             F[str(X[1].state)] = X[1]
-            #count += 1
-            #print(len(A), "\n")
     print(X[1].gcost)
 
 def main():
