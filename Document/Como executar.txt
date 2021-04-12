@@ -1,0 +1,21 @@
+Exucute o código fonte com o python.
+
+A seleção da heurística se da na linha 166, só mudar o nome de "heuristic_n(sucessor.state)" sendo "n" o número da heurística.
+
+1 - Fora de lugar
+2 - fora de lugar sequencia numerica
+3 - distancia manhatthan
+4 - combinação linear entre heuristicas
+5 - máximo entre as heuristicas
+
+
+O resultado mostrará o número de movimentos mínimos, o número de memória e o tempo, respectivamente.
+
+
+Entrada:  0 2 9 13 3 1 5 14 4 7 6 10 8 11 12 15
+
+Saída:
+Movimentos: 18
+Memória em bytes: 25712
+Tempo total: 2.154 s
+

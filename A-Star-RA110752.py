@@ -1,5 +1,7 @@
 import copy
 import heapq
+import sys
+import time
 
 # ----------------- Nó -----------------------
 
@@ -120,12 +122,13 @@ def heuristic_3(state):
     soma = 0
     for i in range(4):
         for j in range(4):
-            if state[i][j]:
-                value = state[i][j]
-                x, y = goal_manhattan[value]
-                soma += abs(i - x)
-                soma += abs(j - y)
-    return soma
+            if(state[i][j]):
+              value = state[i][j]
+              x, y = goal_manhattan[value]
+              soma += abs(i - x)
+              soma += abs(j - y)
+
+    return soma    
 
 def heuristic_4(state):
     p1 = 0.3
@@ -160,7 +163,7 @@ def A_Star (iniTable):
         else:
             sucessores = Gerasucessor(X[1])
             for sucessor in sucessores:
-                sucessor.hcost = heuristic_3(sucessor.state)
+                sucessor.hcost = heuristic_1(sucessor.state)
                 if not str(sucessor.state) in A:
                     if not str(sucessor.state) in F:
                         heapq.heappush(heap, (sucessor.f(), sucessor))
@@ -175,12 +178,14 @@ def A_Star (iniTable):
                         A[str(sucessor.state)] = sucessor
 
             F[str(X[1].state)] = X[1]
-    print(X[1].gcost)
+    print("Movimentos:", X[1].gcost)
+    print("Memória em bytes:", int(sys.getsizeof(A) + sys.getsizeof(F)))
 
 def main():
+    inicio = time.time()
     iniState = Node(read_write(), None, 0, 0) #Node(state, parent, gcost, hcost)
     A_Star(iniState)
-
+    fim = time.time()
+    print("Tempo total:",round(((fim - inicio)*1000)/1000,3),"s")
 if __name__ == '__main__':
     main()
-
