@@ -50,7 +50,7 @@ This input correspond to the initial state (board):
 
 ### Selecting heuristics
 
-The selection of the heuristic is made on line 166: 
+The selection of the heuristic is made on the line 166: 
 
       sucessor.hcost = heuristic_1(sucessor.state)
 
