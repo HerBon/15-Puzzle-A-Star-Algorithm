@@ -11,7 +11,7 @@ comparing the efficiency of the heuristics.
 
 ## How to use
 
-# Input
+#### Input
 
 The program reads an input in the following format:
 
@@ -48,15 +48,15 @@ This input correspond to the initial state (board):
 
 <b>0 representing the blank space.</b>
 
-# Selecting heuristics
+#### Selecting heuristics
 
 The selection of the heuristic is made on line 166: 
       sucessor.hcost = heuristic_1(sucessor.state)
 
 Change the name "heuristic_n (sucessor.state)" with "n" being one of the following number:
 
-  <b>1</b> - Out of place
-  <b>2</b> - Out of order
+  <li><b>1</b> - Out of place</li>
+  <li><b>2</b> - Out of order</li>
   <b>3</b> - Manhatthan distance
   <b>4</b> - Linear combination
   <b>5</b> - Maximum value
