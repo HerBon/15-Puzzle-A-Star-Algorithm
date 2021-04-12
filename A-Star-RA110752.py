@@ -178,14 +178,14 @@ def A_Star (iniTable):
                         A[str(sucessor.state)] = sucessor
 
             F[str(X[1].state)] = X[1]
-    print("Movimentos:", X[1].gcost)
-    print("Memória em bytes:", int(sys.getsizeof(A) + sys.getsizeof(F)))
+    print("Movements:", X[1].gcost)
+    print("Memory usaged (bytes):", int(sys.getsizeof(A) + sys.getsizeof(F)))
 
 def main():
     inicio = time.time()
     iniState = Node(read_write(), None, 0, 0) #Node(state, parent, gcost, hcost)
     A_Star(iniState)
     fim = time.time()
-    print("Tempo total:",round(((fim - inicio)*1000)/1000,3),"s")
+    print("Execution time:",round(((fim - inicio)*1000)/1000,3),"s")
 if __name__ == '__main__':
     main()
