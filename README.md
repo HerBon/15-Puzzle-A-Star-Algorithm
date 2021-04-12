@@ -56,11 +56,11 @@ The selection of the heuristic is made on line 166:
 
 Change the name <b>"heuristic_n (sucessor.state)"</b> with <b>"n"</b> being one of the following number:
 
-  <li><b>1</b> - Out of place</li>
-  <li><b>2</b> - Out of order</li>
-  <li><b>3</b> - Manhatthan distance</li>
-  <li><b>4</b> - Linear combination</li>
-  <li><b>5</b> - Maximum value</li>
+  <b>1</b> - Out of place</br>
+  <b>2</b> - Out of order</br>
+  <<b>3</b> - Manhatthan distance</br>
+  <b>4</b> - Linear combination</br>
+  <b>5</b> - Maximum value</br>
 
 ### Output
 

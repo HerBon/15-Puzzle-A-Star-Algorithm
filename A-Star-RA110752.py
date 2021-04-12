@@ -179,7 +179,7 @@ def A_Star (iniTable):
 
             F[str(X[1].state)] = X[1]
     print("Movements:", X[1].gcost)
-    print("Memory usaged (bytes):", int(sys.getsizeof(A) + sys.getsizeof(F)))
+    print("Memory usage (bytes):", int(sys.getsizeof(A) + sys.getsizeof(F)))
 
 def main():
     inicio = time.time()
