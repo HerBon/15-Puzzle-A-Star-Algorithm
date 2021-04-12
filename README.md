@@ -58,7 +58,7 @@ Change the name <b>"heuristic_n (sucessor.state)"</b> with <b>"n"</b> being one 
 
   <b>1</b> - Out of place</br>
   <b>2</b> - Out of order</br>
-  <<b>3</b> - Manhatthan distance</br>
+  <b>3</b> - Manhatthan distance</br>
   <b>4</b> - Linear combination</br>
   <b>5</b> - Maximum value</br>
 
